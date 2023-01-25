@@ -10,8 +10,19 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+@Configuration
 @ComponentScan(basePackages = "com.github.lsj8367.tobyspringboot")
 public class TobyspringbootApplication {
+
+    @Bean
+    public ServletWebServerFactory servletWebServerFactory() {
+        return new TomcatServletWebServerFactory();
+    }
+
+    @Bean
+    public DispatcherServlet dispatcherServlet() {
+        return new DispatcherServlet();
+    }
 
     public static void main(String[] args) {
         final AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext() {
@@ -19,11 +30,12 @@ public class TobyspringbootApplication {
             protected void onRefresh() {
                 super.onRefresh();
 
-                final ServletWebServerFactory webServerFactory = new TomcatServletWebServerFactory();
+                final ServletWebServerFactory webServerFactory = this.getBean(ServletWebServerFactory.class);
+                final DispatcherServlet dispatcherServlet = this.getBean(DispatcherServlet.class);
+
                 final WebServer webServer = webServerFactory.getWebServer(servletContext -> {
-                    servletContext.addServlet("dispatcherServlet",
-                        new DispatcherServlet(this)
-                    ).addMapping("/*");
+                    servletContext.addServlet("dispatcherServlet", dispatcherServlet)
+                        .addMapping("/*");
                 });
                 webServer.start();
 
