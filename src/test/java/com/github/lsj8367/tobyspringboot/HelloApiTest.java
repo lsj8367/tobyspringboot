@@ -1,7 +1,7 @@
 package com.github.lsj8367.tobyspringboot;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import org.assertj.core.api.Assertions;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpHeaders;
