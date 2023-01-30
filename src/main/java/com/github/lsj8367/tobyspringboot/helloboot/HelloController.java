@@ -1,4 +1,4 @@
-package com.github.lsj8367.tobyspringboot;
+package com.github.lsj8367.tobyspringboot.helloboot;
 
 import java.util.Objects;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.github.lsj8367.tobyspringboot;
+package com.github.lsj8367.tobyspringboot.helloboot;
 
 public interface HelloService {
 
