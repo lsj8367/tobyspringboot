@@ -1,5 +1,6 @@
-package com.github.lsj8367.tobyspringboot;
+package com.github.lsj8367.tobyspringboot.helloboot;
 
+import com.github.lsj8367.tobyspringboot.helloboot.HelloService;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
