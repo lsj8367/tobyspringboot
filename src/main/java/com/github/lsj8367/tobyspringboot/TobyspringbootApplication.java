@@ -1,9 +1,9 @@
 package com.github.lsj8367.tobyspringboot;
 
-import com.github.lsj8367.tobyspringboot.helloboot.MySpringBootAnnotation;
+import com.github.lsj8367.tobyspringboot.config.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;
 
-@MySpringBootAnnotation
+@MySpringBootApplication
 public class TobyspringbootApplication {
 
     public static void main(String[] args) {
