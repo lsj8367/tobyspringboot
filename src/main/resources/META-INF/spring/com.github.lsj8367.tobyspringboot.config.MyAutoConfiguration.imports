@@ -1,0 +1,2 @@
+com.github.lsj8367.tobyspringboot.config.autoconfig.DispatcherServletConfig
+com.github.lsj8367.tobyspringboot.config.autoconfig.TomcatWebServerConfig
