@@ -1,8 +1,8 @@
 package com.github.lsj8367.tobyspringboot.config.autoconfig;
 
 import com.github.lsj8367.tobyspringboot.config.MyAutoConfiguration;
-import com.github.lsj8367.tobyspringboot.config.autoconfig.TomcatWebServerConfig.TomcatCondition;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import com.github.lsj8367.tobyspringboot.config.autoconfig.UndertowWebServerConfig.UndertowCondition;
+import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Condition;
@@ -11,21 +11,19 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 @MyAutoConfiguration
-@Conditional(TomcatCondition.class)
-public class TomcatWebServerConfig {
+@Conditional(UndertowCondition.class)
+public class UndertowWebServerConfig {
 
-    @Bean("tomcatWebServerFactory")
+    @Bean("jettyWebServerFactory")
     public ServletWebServerFactory servletWebServerFactory() {
-        return new TomcatServletWebServerFactory();
+        return new UndertowServletWebServerFactory();
     }
 
-    static class TomcatCondition implements Condition {
+    static class UndertowCondition implements Condition {
 
         @Override
         public boolean matches(final ConditionContext context, final AnnotatedTypeMetadata metadata) {
-            return false;
+            return true;
         }
     }
-
-
 }
