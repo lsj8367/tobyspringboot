@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Configuration(proxyBeanMethods = false)
+@Configuration(proxyBeanMethods = false) // 등록된 빈을 가져와서 추가적으로 의존 주입을 하는경우가 아니라면 false를 주어 프록시를 만들지 않게 하는 옵션
 public @interface MyAutoConfiguration {
 
 }
