@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.core.type.AnnotatedTypeMetadata;
+import org.springframework.util.ClassUtils;
 
 @MyAutoConfiguration
 @Conditional(UndertowCondition.class)
@@ -23,7 +24,7 @@ public class UndertowWebServerConfig {
 
         @Override
         public boolean matches(final ConditionContext context, final AnnotatedTypeMetadata metadata) {
-            return true;
+            return ClassUtils.isPresent("io.undertow.Undertow", context.getClassLoader());
         }
     }
 }
