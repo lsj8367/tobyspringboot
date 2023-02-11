@@ -1,3 +1,4 @@
 com.github.lsj8367.tobyspringboot.config.autoconfig.DispatcherServletConfig
 com.github.lsj8367.tobyspringboot.config.autoconfig.TomcatWebServerConfig
 com.github.lsj8367.tobyspringboot.config.autoconfig.UndertowWebServerConfig
+com.github.lsj8367.tobyspringboot.config.PropertyPlaceHolderConfig
